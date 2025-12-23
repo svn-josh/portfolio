@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>500 – Internal server error | Developer Josh</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <style>
+    :root {
+      --bg: #0f1115;
+      --bg-soft: #161922;
+      --text: #e6e6eb;
+      --muted: #9aa0b4;
+      --accent: #7c6cff;
+      --accent-soft: rgba(124,108,255,0.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, sans-serif;
+      background: radial-gradient(1200px 600px at 10% 10%, var(--accent-soft), transparent 40%),
+                  radial-gradient(800px 400px at 90% 90%, var(--accent-soft), transparent 40%),
+                  var(--bg);
+      color: var(--text);
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .card {
+      max-width: 520px;
+      width: 100%;
+      background: rgba(22,25,34,0.85);
+      border-radius: 16px;
+      padding: 2.5rem 2.25rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.8);
+      text-align: center;
+    }
+
+    .code {
+      font-size: 4rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin: 0 0 0.75rem;
+    }
+
+    h1 {
+      margin: 0 0 0.75rem;
+      font-size: 1.8rem;
+    }
+
+    p {
+      margin: 0.25rem 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .cta {
+      margin-top: 2rem;
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), #9b8cff);
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 0 18px rgba(124,108,255,0.6);
+    }
+
+    .hint {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <main class="card" aria-labelledby="title">
+    <div class="code">500</div>
+    <h1 id="title">Something went wrong</h1>
+    <p>The server hit an unexpected error while handling your request.</p>
+    <p class="hint">You can try again later or return to the homepage.</p>
+    <a class="cta" href="/">Back to home</a>
+  </main>
+</body>
+</html>

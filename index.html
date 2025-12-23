@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+
+<!--
+  Portfolio of Joshua (developer-josh.de)
+
+  You are allowed to view, copy and adapt this page's
+  HTML/CSS/JS for your own personal or commercial use
+  as long as you keep an attribution link back to
+  https://developer-josh.de/ and credit "Joshua" as the
+  original author.
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dev Josh | Portfolio</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <!-- Devicon icon font for tech stack logos -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <meta name="description" content="Joshua is an IT manager, system administrator and developer focused on clean systems, automation and reliable infrastructure. Portfolio, skills, projects and contact information." />
+  <meta name="author" content="Joshua" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://developer-josh.de/" />
+
+  <meta property="og:title" content="Developer Josh | Portfolio" />
+  <meta property="og:description" content="IT manager, sysadmin and developer focused on automation and reliable infrastructure. See skills, projects and ways to contact Joshua." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://developer-josh.de/" />
+  <meta property="og:image" content="https://developer-josh.de/assets/favicon.png" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Developer Josh | Portfolio" />
+  <meta name="twitter:description" content="Portfolio of Joshua – IT manager, sysadmin and developer focused on automation and reliable infrastructure." />
+  <meta name="twitter:image" content="https://developer-josh.de/assets/favicon.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Joshua",
+    "url": "https://developer-josh.de/",
+    "jobTitle": "IT Manager, System Administrator and Developer",
+    "email": "mailto:info@developer-josh.de",
+    "sameAs": [
+      "https://github.com/svn-josh",
+      "https://discordapp.com/users/312883560782626824"
+    ]
+  }
+  </script>
+
+  <style>
+    /* Global theme tokens */
+    :root {
+      --bg: #0f1115;
+      --bg-soft: #161922;
+      --text: #e6e6eb;
+      --muted: #9aa0b4;
+      --accent: #7c6cff;
+      --accent-soft: rgba(124,108,255,0.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    /* Base layout */
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, sans-serif;
+      background: radial-gradient(1200px 600px at 10% 10%, var(--accent-soft), transparent 40%),
+                  radial-gradient(800px 400px at 90% 90%, var(--accent-soft), transparent 40%),
+                  var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+      /* Hide native scrollbar while keeping scroll */
+      scrollbar-width: none;          /* Firefox */
+      -ms-overflow-style: none;       /* IE/Edge legacy */
+    }
+
+    /* Hide WebKit scrollbars */
+    body::-webkit-scrollbar,
+    html::-webkit-scrollbar {
+      display: none;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+
+    /* Hero header */
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .hero-accent {
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(124,108,255,0.35), transparent 70%);
+      filter: blur(120px);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      z-index: -1;
+      transition: transform 0.1s linear;
+    }
+
+    .avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(22,25,34,0.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: grid;
+      place-items: center;
+      border: 2px solid rgba(124,108,255,0.4);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      margin-bottom: 2rem;
+      overflow: hidden;
+      animation: fadeUp 1s ease forwards, float 6s ease-in-out infinite;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Generic fade-in for images/icons */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    header h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin: 0;
+      letter-spacing: 0.04em;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    header h1 span {
+      color: var(--accent);
+    }
+
+    header p {
+      max-width: 600px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-top: 1.5rem;
+      animation: fadeUp 1s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    .cta {
+      margin-top: 3rem;
+      display: inline-block;
+      padding: 0.9rem 1.6rem;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), #9b8cff);
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 0 0 0 rgba(124,108,255,0.6);
+      animation: pulse 3s infinite;
+    }
+
+    section {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    section h2::after {
+      content: "";
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+    }
+
+    /* Generic grid layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    /* Tech stack icon row */
+    .stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .stack-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: rgba(22,25,34,0.85);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0;
+    }
+
+    .stack-tag i {
+      font-size: 1.8rem;
+    }
+
+    .actions {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    /* Sidebar (top-left) */
+    .sidebar {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 3;
+    }
+    .sidebar-toggle {
+      background: rgba(22,25,34,0.65);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 0.8rem 1rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      cursor: pointer;
+      font-size: 1.3rem;
+    }
+    .sidebar-panel {
+      margin-top: 10px;
+      background: rgba(22,25,34,0.65);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 1rem;
+      min-width: 220px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+      opacity: 0;
+      transform: translateY(-6px) scale(0.98);
+      transition: opacity .2s ease, transform .2s ease;
+      pointer-events: none;
+    }
+    .sidebar.open .sidebar-panel {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+    .sidebar a {
+      display: block;
+      color: var(--text);
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      font-size: 1.05rem;
+    }
+    .sidebar a:hover {
+      background: var(--accent-soft);
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(22,25,34,0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 14px;
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px var(--accent-soft);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    footer {
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+      z-index: 2;
+    }
+
+    canvas#particles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(124,108,255,0.6); }
+      70%  { box-shadow: 0 0 0 20px rgba(124,108,255,0); }
+      100% { box-shadow: 0 0 0 0 rgba(124,108,255,0); }
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-12px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Scroll reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      font-size: 3rem;
+      color: var(--muted);
+      animation: bounce 2s infinite;
+    }
+
+    /* Experience timeline layout */
+    .timeline {
+      position: relative;
+      margin-top: 2.5rem;
+      padding-left: 2.4rem;
+      border-left: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.75rem;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -11px;
+      top: 0.35rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-soft);
+    }
+
+    .timeline-meta {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-content {
+      margin-left: 0.9rem;
+    }
+
+    .timeline-content p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Scroll progress bar */
+    .scroll-progress {
+      position: fixed;
+      right: 18px;
+      top: 80px;
+      bottom: 80px;
+      width: 3px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 999px;
+      z-index: 3;
+      overflow: hidden;
+    }
+
+    .scroll-progress-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background: linear-gradient(to bottom, var(--accent), #9b8cff);
+      box-shadow: 0 0 12px rgba(124,108,255,0.7);
+      transition: height 0.15s ease-out;
+    }
+
+    /* Section mini-map next to progress bar */
+    .section-map {
+      position: fixed;
+      right: 30px;
+      top: 80px;
+      bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .section-map-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.4);
+      background: rgba(22,25,34,0.9);
+      box-shadow: 0 0 0 3px rgba(0,0,0,0.5);
+      cursor: pointer;
+      pointer-events: auto;
+      opacity: 0.6;
+      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .section-map-dot.section-active {
+      opacity: 1;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(124,108,255,0.9);
+      transform: scale(1.1);
+    }
+
+    .section-map-dot:hover {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sidebar navigation -->
+<nav class="sidebar" aria-label="Site">
+  <button class="sidebar-toggle" aria-expanded="false" aria-controls="sidebar-links" title="Menu">☰</button>
+  <div id="sidebar-links" class="sidebar-panel">
+    <a href="#top">Home</a>
+    <a href="#skills">Skills</a>
+    <a href="#stack">Stack</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  </nav>
+
+<!-- Hero section -->
+<header id="top">
+  <div class="hero-accent"></div>
+  <div class="avatar">
+    <img src="assets/avataaars.png" alt="Avatar of Joshua" loading="lazy" decoding="async" class="fade-in" />
+  </div>
+  <h1>Developer <span>Josh</span></h1>
+  <p>IT Manager, Sysadmin and Developer. Focused on clean systems, automation and reliable infrastructure.</p>
+  <a class="cta" href="#skills">Show more</a>
+  <div class="scroll-indicator">⌄</div>
+</header>
+
+<!-- Skills overview -->
+<section id="skills" class="reveal">
+  <h2>Skills</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>🖥️ Systems</h3>
+      <p>Linux, Windows Server, Docker, Networking, Monitoring, Hardening</p>
+    </div>
+    <div class="card">
+      <h3>⚙️ Development</h3>
+      <p>Python, Bash, SQL, REST APIs, Automation, Scraping</p>
+    </div>
+    <div class="card">
+      <h3>☁️ Cloud & SaaS</h3>
+      <p>Microsoft 365, Exchange Online, Identity & Access</p>
+    </div>
+  </div>
+</section>
+
+<!-- Icon-only tech stack -->
+<section id="stack" class="reveal">
+  <h2>Tech Stack</h2>
+  <div class="stack-tags">
+    <span class="stack-tag fade-in" title="Bash"><i class="devicon-bash-plain colored"></i></span>
+    <span class="stack-tag fade-in" title="Bootstrap"><i class="devicon-bootstrap-plain colored"></i></span>
+    <span class="stack-tag fade-in" title="Django"><i class="devicon-django-plain colored"></i></span>
+    <span class="stack-tag fade-in" title="Docker"><i class="devicon-docker-plain colored"></i></span>
+    <span class="stack-tag fade-in" title="Git"><i class="devicon-git-plain colored"></i></span>
+    <span class="stack-tag fade-in" title="Linux"><i class="devicon-linux-plain colored"></i></span>
+    <span class="stack-tag fade-in" title="MS SQL"><i class="devicon-microsoftsqlserver-plain colored"></i></span>
+    <span class="stack-tag fade-in" title="MySQL"><i class="devicon-mysql-plain colored"></i></span>
+    <span class="stack-tag fade-in" title="Nginx"><i class="devicon-nginx-plain colored"></i></span>
+    <span class="stack-tag fade-in" title="Node.js"><i class="devicon-nodejs-plain colored"></i></span>
+    <span class="stack-tag fade-in" title="PostgreSQL"><i class="devicon-postgresql-plain colored"></i></span>
+    <span class="stack-tag fade-in" title="Python"><i class="devicon-python-plain colored"></i></span>
+    <span class="stack-tag fade-in" title="SQLite"><i class="devicon-sqlite-plain colored"></i></span>
+    <span class="stack-tag fade-in" title="Vagrant"><i class="devicon-vagrant-plain colored"></i></span>
+  </div>
+</section>
+
+<!-- Highlighted projects -->
+<section id="projects" class="reveal">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>🤖 Automation</h3>
+      <p>Custom scripts and integrations to remove manual work and reduce error rates.</p>
+    </div>
+    <div class="card">
+      <h3>🏗️ Infrastructure</h3>
+      <p>Linux servers, Docker, monitoring and hardened production environments.</p>
+    </div>
+    <div class="card">
+      <h3>🔗 APIs</h3>
+      <p>Shipping, logistics and ERP integrations with clean, maintainable interfaces.</p>
+    </div>
+  </div>
+  <div class="actions">
+    <a class="cta" href="https://github.com/svn-josh" target="_blank" rel="noopener">Show more on GitHub…</a>
+  </div>
+
+</section>
+
+<!-- Short bio -->
+<section id="about" class="reveal">
+  <h2>About</h2>
+  <p style="max-width:700px;color:var(--muted);line-height:1.7;">
+    I'm Joshua, currently <span id="age"></span> years old, working at the intersection of development and operations. My focus is pragmatic: systems that work, scale and can be maintained long-term. I enjoy simplifying messy infrastructures, automating repetitive tasks and building tools that let people focus on real work instead of fighting with their systems.
+  </p>
+</section>
+
+<!-- Experience timeline -->
+<section id="experience" class="reveal">
+  <h2>Experience</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-meta">2023 – Now · IT Manager & Developer</div>
+        <p>Owning infrastructure, automation and monitoring, keeping production systems stable and predictable.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-meta">2020 – 2023 · Sysadmin & Dev</div>
+        <p>Built internal tools, automated routine operations and reduced manual work across teams.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-meta">Before 2020 · Foundations</div>
+        <p>Learning Linux, scripting and networking while experimenting with small side projects and servers.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- Contact options -->
+<section id="contact" class="reveal">
+  <h2>Contact</h2>
+  <div class="grid">
+    <a class="card" href="mailto:info@developer-josh.de">
+      <h3>📧 Email</h3>
+      <p>info@developer-josh.de</p>
+    </a>
+    <a class="card" href="https://discordapp.com/users/312883560782626824" target="_blank">
+      <h3>💬 Discord</h3>
+      <p>Direct message via Discord</p>
+    </a>
+    <a class="card" href="https://github.com/svn-josh" target="_blank">
+      <h3>🐙 GitHub</h3>
+      <p>github.com/svn-josh</p>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>© <span id="year-range"></span> developer-josh.de</p>
+</footer>
+
+<canvas id="particles"></canvas>
+
+<!-- Scroll progress indicator -->
+<div class="scroll-progress" aria-hidden="true">
+  <div class="scroll-progress-inner" id="scroll-progress-inner"></div>
+</div>
+
+<script>
+  // Reveal sections when they enter the viewport
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Fade-in for images/icons when they enter the viewport
+  const fadeObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+  // Simple particle background in the page backdrop
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let w, h;
+
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  const particles = Array.from({ length: 60 }, () => ({
+    x: Math.random() * w,
+    y: Math.random() * h,
+    r: Math.random() * 2 + 1,
+    vx: (Math.random() - 0.5) * 0.4,
+    vy: (Math.random() - 0.5) * 0.4
+  }));
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = 'rgba(124,108,255,0.6)';
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  // Subtle parallax movement for the hero accent blob
+  const accent = document.querySelector('.hero-accent');
+  window.addEventListener('mousemove', e => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 40;
+    const y = (e.clientY / window.innerHeight - 0.5) * 40;
+    accent.style.transform = `translate(calc(-50% + ${x}px), calc(-60% + ${y}px))`;
+  });
+
+  // Sidebar open/close behavior
+  const sidebar = document.querySelector('.sidebar');
+  const toggleBtn = document.querySelector('.sidebar-toggle');
+  if (sidebar && toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const open = sidebar.classList.toggle('open');
+      toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    // Close on link click (useful on mobile)
+    sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    }));
+    // Close on Escape key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        sidebar.classList.remove('open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Custom eased smooth scroll for internal links (sidebar + hero button)
+  function smoothScrollTo(targetY, duration = 900) {
+    const startY = window.scrollY || window.pageYOffset;
+    const distanceY = targetY - startY;
+    let startTime = null;
+
+    function step(timestamp) {
+      if (startTime === null) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      // easeInOutCubic
+      const eased = progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+      window.scrollTo(0, startY + distanceY * eased);
+      if (progress < 1) requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const targetId = link.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+      const target = document.querySelector(targetId);
+      if (!target) return;
+      e.preventDefault();
+
+      const rect = target.getBoundingClientRect();
+      const targetY = window.pageYOffset + rect.top;
+      smoothScrollTo(targetY, 900);
+
+      if (history.pushState) {
+        history.pushState(null, '', targetId);
+      } else {
+        location.hash = targetId;
+      }
+    });
+  });
+
+  // Scroll progress indicator
+  const progressInner = document.getElementById('scroll-progress-inner');
+  function updateScrollProgress() {
+    if (!progressInner) return;
+    const scrollTop = window.scrollY || window.pageYOffset;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
+    progressInner.style.height = `${progress * 100}%`;
+  }
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  window.addEventListener('resize', updateScrollProgress);
+  updateScrollProgress();
+
+  // Dynamic age in About section based on birth date
+  (function() {
+    const birthDate = new Date(2002, 0, 16); // 16 January 2002
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    const ageEl = document.getElementById('age');
+    if (ageEl) ageEl.textContent = age.toString();
+  })();
+
+  // Dynamic footer year range (2024–current year)
+  (function() {
+    const startYear = 2024;
+    const currentYear = new Date().getFullYear();
+    const yearsText = currentYear > startYear ? `${startYear}–${currentYear}` : `${startYear}`;
+    const yearEl = document.getElementById('year-range');
+    if (yearEl) yearEl.textContent = yearsText;
+  })();
+</script>
+
+</body>
+</html>
